@@ -5,6 +5,9 @@ project(JetbotTest)
 
 include_directories("asp/inc" "uart/inc")
 
-FILE(GLOB sourcefiles "*.cpp" "asp/src/*.c" "uart/src/*.cpp")
-add_executable( test ${sourcefiles} )
+FILE(GLOB sourcefiles "asp/src/*.c" "uart/src/*.cpp")
+add_executable( test ${sourcefiles} "JetbotTest.cpp")
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build)
+
+add_executable( test_dbus ${sourcefiles} "JetbotDBusTest.cpp")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build)
